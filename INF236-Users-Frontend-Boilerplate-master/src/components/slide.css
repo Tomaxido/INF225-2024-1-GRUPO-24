@@ -1,0 +1,13 @@
+/* slide.css */
+
+.navbar.bg-light {
+  background-color: #ffffff; /* Cambia este valor al color que desees */
+}
+
+.nav-link {
+  color: #ffffff; /* Cambia este valor al color que desees para el texto */
+}
+
+.nav-link:hover {
+  color: #ffffff; /* Cambia este valor al color que desees para el texto al pasar el ratón */
+}
