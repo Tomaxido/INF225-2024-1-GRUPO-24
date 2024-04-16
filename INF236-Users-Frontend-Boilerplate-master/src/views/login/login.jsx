@@ -15,6 +15,9 @@ function Login() {
       if (response.length > 0) { 
         const respuesta = response[0];
         cookies.set('nombre', respuesta.nombre, { path: '/' });
+        cookies.set('cargo', respuesta.cargo, { path: '/' });
+        cookies.set('userId', respuesta.id, { path: '/' });
+
         alert(`Bienvenido ${respuesta.nombre}`);
         window.location.href = '/';
       } else {

@@ -14,6 +14,12 @@ const getAllSolis = () =>
 	axios
 		.get(`${process.env.REACT_APP_BACKEND_URL}/solicitud`)
 		.then((res) => res.data);
+
+const getSoliByEjecutivo = (userId) => 
+	axios
+		.get(`${process.env.REACT_APP_BACKEND_URL}/solicitud/getByEjecutivo/${userId}`)
+		.then((res) =>  res.data);
+
 const deleteSoli = async (id) =>
 	axios.delete(`${process.env.REACT_APP_BACKEND_URL}/solicitud/${id}`).then(res => res.data);
 
@@ -22,4 +28,4 @@ const deriSoli = async (id) =>
 	
 const updateDeriSoli = async (id) =>
 	axios.put(`${process.env.REACT_APP_BACKEND_URL}/solicitud/${id}`);
-export { addsolicitud, getAllSolis,getSoli,deleteSoli,deriSoli,updateDeriSoli};
+export { addsolicitud, getAllSolis,getSoli,deleteSoli,deriSoli,updateDeriSoli, getSoliByEjecutivo};

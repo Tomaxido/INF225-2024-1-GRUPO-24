@@ -9,6 +9,13 @@ Solicitud.init({
     autoIncrement: true,
     primaryKey: true,
   },
+  created_by: {
+    type: Sequelize.DataTypes.INTEGER,
+    references: {
+      model: 'Users', 
+      key: 'id',
+    },
+  },
   nombre: Sequelize.DataTypes.STRING,
   rut: Sequelize.DataTypes.STRING,
   fecha: Sequelize.DataTypes.DATE,

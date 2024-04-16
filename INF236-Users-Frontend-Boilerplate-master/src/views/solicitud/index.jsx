@@ -7,24 +7,33 @@ import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import DeleteForm from "../../views/solicitud/delete_soli";
 import DeriForm from "./deri_soli";
-import { deleteSoli, getAllSolis, deriSoli } from "../../repositories/solicitud";
+import { deleteSoli, getAllSolis, deriSoli, getSoliByEjecutivo } from "../../repositories/solicitud";
 import Cookies from 'universal-cookie';
 import "./tabla.css";
 
 export default function index() {
 	const cookies = new Cookies();
-	const nombreCookie = cookies.get('nombre');
+	const cargoCookie = cookies.get('cargo');
+	const userId = cookies.get('userId');
 	useEffect(() => {
-		if ( nombreCookie != "Analista"){
+		if ( cargoCookie != 0){
 		  window.location.href = '/';
 		}
 	  }, []);
 
-	const { data, error } = useSWR("/solicitud/all", {
-		fetcher: getAllSolis,
+		/*
+		const { data, error } = useSWR("/solicitud/all", {
+			fetcher: getAllSolis,
+			initialData: [],
+			revalidateOnMount: true,
+		});
+		*/
+	const { data, error } = useSWR(`${userId}`, {
+		fetcher: getSoliByEjecutivo,
 		initialData: [],
 		revalidateOnMount: true,
 	});
+
 	const valores = {
 		0: 'No',
 		1: 'Si',
@@ -35,7 +44,6 @@ export default function index() {
 		2: 'Rechazada',
 	};
 	const tbody = [];
-
 	data.forEach(({ nombre, rut, id ,fecha,estado,derivada}) => {
 		const a_mostrar1 = valores2[estado];
 		const a_mostrar2 = valores[derivada];

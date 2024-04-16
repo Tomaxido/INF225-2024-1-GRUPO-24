@@ -3,6 +3,7 @@ import Solicitud from '../models/solicitud.js';
 export default class SolicitudController{
 	async getAll(req, res) {
 		const soli = await Solicitud.findAll();
+		console.log(soli);
 		res.send(soli);
 	}	
 
@@ -20,8 +21,23 @@ export default class SolicitudController{
 		res.send(soli);
 	}
 
+	async getByEjecutivoId(req, res) {
+		const id = req.params.userId;
+		const solicitudes = await Solicitud.findAll({
+			where: {
+				created_by: id
+			},
+			attributes: ['id', 'nombre', 'fecha', 'rut', 'estado', 'derivada']
+		});
+		const solicitudesDataValues = solicitudes.map(solicitud => solicitud.dataValues);
+		res.send(solicitudesDataValues);
+		///
+	}
+
 	async create(req, res) {
+		//console.log(req.body.userId, 'aaaaa');
 		const soli = await Solicitud.create({
+			created_by: req.body.userId,
 			nombre: req.body.nombre,	
 			rut: req.body.rut,
 			fecha: req.body.fecha,
