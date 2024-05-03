@@ -1,4 +1,5 @@
 import Solicitud from '../models/solicitud.js';
+import { Sequelize } from 'sequelize';
 
 export default class SolicitudController{
 	async getAll(req, res) {
@@ -32,6 +33,26 @@ export default class SolicitudController{
 		const solicitudesDataValues = solicitudes.map(solicitud => solicitud.dataValues);
 		res.send(solicitudesDataValues);
 		///
+	}
+
+	async getAcceptedSolicitudbyDateRange(req,res) {
+		const { initial_date, end_date } = req.body;
+		try {
+			const solicitudes = await Solicitud.findAll({
+					where: {
+							fecha: {
+									[Sequelize.Op.between]: [initial_date, end_date]
+							},
+							estado: 1 // Filtro para obtener solo solicitudes con estado aceptado
+					},
+					attributes: ['id', 'nombre', 'fecha', 'rut', 'monto_total', 'interes']
+			});
+			const response = solicitudes.map((solicitud) => solicitud.dataValues);
+			res.send(response);
+		} catch (error) {
+				console.error("Error al buscar las solicitudes por rango de fecha:", error);
+				res.status(500).send("Error al buscar las solicitudes por rango de fecha");
+		}
 	}
 
 	async create(req, res) {

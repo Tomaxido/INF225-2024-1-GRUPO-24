@@ -12,10 +12,15 @@ import {
 import './slide.css';
 
 export default function Sidebar() {
-    const nombreCookie = cookies.get('nombre');
+    const nombreCookie = cookies.get('nombre')
+    const cargo = cookies.get('cargo');
     let supervisor = false;
-    if (nombreCookie == "Supervisor"){
+    let analista = false;
+    if (cargo == "1"){
         supervisor = true
+    }
+    if (cargo == "2"){
+        analista = true
     }
     return (
         
@@ -44,14 +49,21 @@ export default function Sidebar() {
                     <Nav.Link href="/derivados">Solicitudes Derivadas</Nav.Link>
                 </Link>
                 )}
-                {nombreCookie && !supervisor && (
+                {nombreCookie && !supervisor && !analista && (
                 <>
                     <Link to="/solicitud">
                     <Nav.Link href="/solicitud">Solicitudes</Nav.Link>
                     </Link>
                     <Link to="/simular/list">
-                    <Nav.Link href="/simular/list">Simulaciones</Nav.Link>
-                    </Link>
+                    <Nav.Link href="/simular/list">Simulaciones</Nav.Link> 
+                    </Link> 
+                </>
+                )}
+                {nombreCookie && !supervisor && analista && (
+                <>
+                    <Link to="/informe-periodo">
+                    <Nav.Link href="/informe-periodo">Informe Monto Total en un Periodo</Nav.Link>
+                    </Link> 
                 </>
                 )}
                 {nombreCookie && (

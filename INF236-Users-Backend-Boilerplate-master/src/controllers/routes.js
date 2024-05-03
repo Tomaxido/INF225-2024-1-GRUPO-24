@@ -19,6 +19,7 @@ export default (app) => {
 	app.post('/solicitud', solicitudController.create);
 	app.get('/solicitud/:id', solicitudController.get);
 	app.put('/solicitud/:id', solicitudController.update);
+	app.post('/solicitud/dates', solicitudController.getAcceptedSolicitudbyDateRange)
 	app.get('/solicitud/getByEjecutivo/:userId', solicitudController.getByEjecutivoId);
 	app.put('/solicitud/aprob/:id', solicitudController.aprobar);
 	app.put('/solicitud/rech/:id', solicitudController.rechazar);

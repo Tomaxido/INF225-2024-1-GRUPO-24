@@ -29,6 +29,7 @@ import DeriShow from "./views/derivados/show";
 import Login from "./views/login/login"
 import Out from "./views/login/cerrar_sesion"
 import Home from "./views/Home";
+import Periodo from "./views/informe_periodo"
 
 export default function App() {
 	return (
@@ -91,6 +92,9 @@ export default function App() {
 								</Route>
 								<Route path="/derivados">
 									<DeriList />
+								</Route>
+								<Route path="/informe-periodo">
+									<Periodo />
 								</Route>
 								
 								

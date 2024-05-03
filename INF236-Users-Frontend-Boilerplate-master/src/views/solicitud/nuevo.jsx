@@ -9,7 +9,8 @@ export default function nuevo() {
     const userId = cookies.get('userId');
     
     const history = useHistory();
-    const [Uf, setUF] = useState()
+    const [Uf, setUF] = useState();
+    const [cuota_uf, setCuota_uf] = useState("");
     const url = "https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json"
         const fetchApi = async () => {
               const response = await fetch(url)
@@ -43,6 +44,26 @@ export default function nuevo() {
       fetchApi()
     }, [])
 
+    useEffect(() => {
+      const monto = parseFloat(state.monto_prestamo);
+      const cuotas = parseInt(state.n_cuotas);
+      const interes = parseFloat(state.interes/100)
+      const monto_uf = monto / parseInt(Uf);
+      if (!isNaN(monto) && !isNaN(cuotas) && cuotas > 0 && !isNaN(interes)) {
+        const arriba = monto_uf
+        const abajoA = (1-((1+interes)**(-cuotas)))
+        const abajoB = interes
+        let resultado = arriba / (abajoA / abajoB);
+
+        setState((prevState) => ({
+          ...prevState,
+          precio_cuota: (isNaN(resultado.toFixed(2)) ? "" : resultado.toFixed(2)),
+        }));
+
+      } 
+
+    },[state.monto_prestamo, state.n_cuotas, state.interes]);
+    
     const calcularCuotas = () => {
       const monto = parseFloat(state.monto_prestamo);
       const cuotas = parseInt(state.n_cuotas);
@@ -71,7 +92,7 @@ export default function nuevo() {
         <form className="cbp-mc-form" onSubmit={submitForm}>
           <div className="cbp-mc-column">
             <label htmlFor="nombre">Nombre Completo</label>
-              <input
+             <input
                 type="text"
                 id="nombre"
                 name="nombre"
@@ -177,8 +198,7 @@ export default function nuevo() {
               onChange={handleChange} 
               readOnly 
               required Class="form-control" />
-              <button  class="btn btn-success" type="button" value="Calcular" onClick={calcularCuotas}> Calcular
-              <span class="fa fa-eye-slash icon"></span> </button>
+
             </div>
             <label htmlFor="comments">Motivo</label>
             <textarea
