@@ -3,6 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Cookies from 'universal-cookie';
 
+import { NavLink } from "react-router-dom";
+import './slide.css';
+
 const cookies = new Cookies();
 
 import {
@@ -23,56 +26,70 @@ export default function Sidebar() {
         analista = true
     }
     return (
-        
-        <Navbar className="bg-light">
-            <Nav defaultActiveKey="/" className="flex-column sidebar-sticky">
-                <Link to="/">
-                <Nav.Link href="/">Inicio</Nav.Link>
-                </Link>
+        <Navbar className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100">
+            <ul className="nav nav-pills flex-column mb-auto">
+                <li className="nav-item">
+                    <NavLink to="/" exact className="nav-link" activeClassName="active">
+                        Inicio
+                    </NavLink>
+                </li>
                 {!nombreCookie && (
-                <Link to="/simular">
-                    <Nav.Link href="/simular">Simular</Nav.Link>
-                </Link>
+                    <li className="nav-item">
+                        <NavLink to="/simular" exact className="nav-link" activeClassName="active">
+                            Simular
+                        </NavLink>
+                    </li>
                 )}
                 {!nombreCookie && (
-                <Link to="/simular/listuser">
-                    <Nav.Link href="/simular/listuser">Listado Simulaciones</Nav.Link>
-                </Link>
+                    <li className="nav-item">
+                        <NavLink to="/simular/listuser" exact className="nav-link" activeClassName="active">
+                            Listado Simulaciones
+                        </NavLink>
+                    </li>
                 )}
                 {!nombreCookie && (
-                <Link to="/login">
-                    <Nav.Link href="/login">Acceso Funcionarios</Nav.Link>
-                </Link>
+                    <li className="nav-item">
+                        <NavLink to="/login" className="nav-link" activeClassName="active">
+                            Acceso Funcionarios
+                        </NavLink>
+                    </li>
                 )}
                 {nombreCookie && supervisor && (
-                <Link to="/derivados">
-                    <Nav.Link href="/derivados">Solicitudes Derivadas</Nav.Link>
-                </Link>
+                    <li className="nav-item">
+                        <NavLink to="/derivados" className="nav-link" activeClassName="active">
+                            Solicitudes Derivadas
+                        </NavLink>
+                    </li>
                 )}
                 {nombreCookie && !supervisor && !analista && (
-                <>
-                    <Link to="/solicitud">
-                    <Nav.Link href="/solicitud">Solicitudes</Nav.Link>
-                    </Link>
-                    <Link to="/simular/list">
-                    <Nav.Link href="/simular/list">Simulaciones</Nav.Link> 
-                    </Link> 
-                </>
+                    <>
+                        <li className="nav-item">
+                            <NavLink to="/solicitud" exact className="nav-link" activeClassName="active">
+                                Solicitudes
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/simular/list" exact className="nav-link" activeClassName="active">
+                                Simulaciones
+                            </NavLink>
+                        </li>
+                    </>
                 )}
                 {nombreCookie && !supervisor && analista && (
-                <>
-                    <Link to="/informe-periodo">
-                    <Nav.Link href="/informe-periodo">Informe Monto Total en un Periodo</Nav.Link>
-                    </Link> 
-                </>
+                    <li className="nav-item">
+                        <NavLink to="/informe-periodo" className="nav-link" activeClassName="active">
+                            Informe Monto Total en un Periodo
+                        </NavLink>
+                    </li>
                 )}
                 {nombreCookie && (
-                <Link to="/login/cerrar_sesion">
-                    <Nav.Link href="/cerrar_sesion">Cerrar Sesión</Nav.Link>
-                </Link>
+                    <li className="nav-item">
+                        <NavLink to="/login/cerrar_sesion" className="nav-link" activeClassName="active">
+                            Cerrar Sesión
+                        </NavLink>
+                    </li>
                 )}
-            </Nav>
-
+            </ul>
         </Navbar>
     )
 }
