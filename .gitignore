@@ -1,11 +1,68 @@
-# Ignora la carpeta node_modules de backend
+# Ignora otras cosas de backend
+INF236-Users-Backend-Boilerplate-master/pgadmin/
+INF236-Users-Backend-Boilerplate-master/postgres-data/
+INF236-Users-Backend-Boilerplate-master/logs
+INF236-Users-Backend-Boilerplate-master/*.log
+INF236-Users-Backend-Boilerplate-master/npm-debug.log*
+INF236-Users-Backend-Boilerplate-master/yarn-debug.log*
+INF236-Users-Backend-Boilerplate-master/yarn-error.log*
+INF236-Users-Backend-Boilerplate-master/lerna-debug.log*
+INF236-Users-Backend-Boilerplate-master/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+INF236-Users-Backend-Boilerplate-master/pids
+INF236-Users-Backend-Boilerplate-master/*.pid
+INF236-Users-Backend-Boilerplate-master/*.seed
+INF236-Users-Backend-Boilerplate-master/*.pid.lock
+INF236-Users-Backend-Boilerplate-master/lib-cov
+INF236-Users-Backend-Boilerplate-master/coverage
+INF236-Users-Backend-Boilerplate-master/*.lcov
+INF236-Users-Backend-Boilerplate-master/.nyc_output
+INF236-Users-Backend-Boilerplate-master/.grunt
+INF236-Users-Backend-Boilerplate-master/bower_components
+INF236-Users-Backend-Boilerplate-master/.lock-wscript
+INF236-Users-Backend-Boilerplate-master/build/Release
 INF236-Users-Backend-Boilerplate-master/node_modules/
+INF236-Users-Backend-Boilerplate-master/jspm_packages/
+INF236-Users-Backend-Boilerplate-master/web_modules/
+INF236-Users-Backend-Boilerplate-master/*.tsbuildinfo
+INF236-Users-Backend-Boilerplate-master/.npm
+INF236-Users-Backend-Boilerplate-master/.eslintcache
+INF236-Users-Backend-Boilerplate-master/.rpt2_cache/
+INF236-Users-Backend-Boilerplate-master/.rts2_cache_cjs/
+INF236-Users-Backend-Boilerplate-master/.rts2_cache_es/
+INF236-Users-Backend-Boilerplate-master/.rts2_cache_umd/
+INF236-Users-Backend-Boilerplate-master/.node_repl_history
+INF236-Users-Backend-Boilerplate-master/*.tgz
+INF236-Users-Backend-Boilerplate-master/.yarn-integrity
+INF236-Users-Backend-Boilerplate-master/.cache
+INF236-Users-Backend-Boilerplate-master/.parcel-cache
+INF236-Users-Backend-Boilerplate-master/.next
+INF236-Users-Backend-Boilerplate-master/out
+INF236-Users-Backend-Boilerplate-master/.nuxt
+INF236-Users-Backend-Boilerplate-master/dist
+INF236-Users-Backend-Boilerplate-master/.cache/
+INF236-Users-Backend-Boilerplate-master/.vuepress/dist
+INF236-Users-Backend-Boilerplate-master/.serverless/
+INF236-Users-Backend-Boilerplate-master/.fusebox/
+INF236-Users-Backend-Boilerplate-master/.dynamodb/
+INF236-Users-Backend-Boilerplate-master/.tern-port
+INF236-Users-Backend-Boilerplate-master/.vscode-test
+INF236-Users-Backend-Boilerplate-master/.yarn/cache
+INF236-Users-Backend-Boilerplate-master/.yarn/unplugged
+INF236-Users-Backend-Boilerplate-master/.yarn/build-state.yml
+INF236-Users-Backend-Boilerplate-master/.yarn/install-state.gz
+INF236-Users-Backend-Boilerplate-master/.pnp.*
 
-# Ignora la carpeta node_modules de frontend
+# Ignora otras cosas de frontend
 INF236-Users-Frontend-Boilerplate-master/node_modules/
-
-# Ignora los archivos relacionados a API keys
-INF236-Users-Frontend-Boilerplate-master/.env
-
-# Ignora los archivos relacionados a API keys
-INF236-Users-Backend-Boilerplate-master/.env
+INF236-Users-Frontend-Boilerplate-master/.pnp/
+INF236-Users-Frontend-Boilerplate-master/.pnp.js
+INF236-Users-Frontend-Boilerplate-master/coverage/
+INF236-Users-Frontend-Boilerplate-master/build/
+INF236-Users-Frontend-Boilerplate-master/.DS_Store
+INF236-Users-Frontend-Boilerplate-master/.env.local
+INF236-Users-Frontend-Boilerplate-master/.env.development.local
+INF236-Users-Frontend-Boilerplate-master/.env.test.local
+INF236-Users-Frontend-Boilerplate-master/.env.production.local
+INF236-Users-Frontend-Boilerplate-master/npm-debug.log*
+INF236-Users-Frontend-Boilerplate-master/yarn-debug.log*
+INF236-Users-Frontend-Boilerplate-master/yarn-error.log*
