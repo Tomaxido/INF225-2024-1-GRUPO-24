@@ -6,10 +6,15 @@ export default class DerivController{
 		res.send(soli);
 	}	
 	async create(req, res) {
-		const deri = await Deriv.create({
-			id: req.params.id,	
-		});
-		res.send(deri);
+		try {
+			const deri = await Deriv.create({
+				id: req.params.id,	
+			});
+			res.send(deri);
+		} catch (error) {
+			res.status(400).send(error)
+		}
+		
 	}
 };
 
