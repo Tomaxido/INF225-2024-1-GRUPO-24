@@ -30,6 +30,7 @@ import Login from "./views/login/login"
 import Out from "./views/login/cerrar_sesion"
 import Home from "./views/Home";
 import Periodo from "./views/informe_periodo"
+import Conversion from "./views/conversion_cuotas"
 
 export default function App() {
 	return (
@@ -95,6 +96,9 @@ export default function App() {
 								</Route>
 								<Route path="/informe-periodo">
 									<Periodo />
+								</Route>
+								<Route path="/conversion-cuotas">
+									<Conversion />
 								</Route>
 								
 								

@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import { genInformePeriodo } from '../../repositories/solicitud';
 import "./tabla.css";
+import axios from 'axios';
+
 
 export default function index() {
     const cookies = new Cookies();
     const cargoCookie = cookies.get('cargo');
-
     const [state, setState] = useState({
         fecha_i: '',
         fecha_f: '',
@@ -134,7 +135,7 @@ export default function index() {
                                     <td>{item.rut}</td>
                                     <td>{item.nombre}</td>
                                     <td>{item.fecha}</td>
-                                    <td>{item.monto_total}</td>
+                                    <td>{item.monto_total.toLocaleString('en')}</td>
                                     <td>{montoTotalUF}</td>
                                     <td>{item.interes}%</td>
                                 </tr>

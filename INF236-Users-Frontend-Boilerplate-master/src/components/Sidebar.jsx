@@ -82,6 +82,13 @@ export default function Sidebar() {
                         </NavLink>
                     </li>
                 )}
+                {nombreCookie && !supervisor && analista && (
+                    <li className="nav-item">
+                        <NavLink to="/conversion-cuotas" className="nav-link" activeClassName="active">
+                            Conversión de Cuotas
+                        </NavLink>
+                    </li>
+                )}
                 {nombreCookie && (
                     <li className="nav-item">
                         <NavLink to="/login/cerrar_sesion" className="nav-link" activeClassName="active">

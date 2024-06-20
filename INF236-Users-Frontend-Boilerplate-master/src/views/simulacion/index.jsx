@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { addsimu } from '../../repositories/simulaciones';
 import './diseño.css';
+import axios from 'axios';
+
 
 export default function nuevo() {
     const history = useHistory();
     const [Uf, setUF] = useState()
-    const url = "https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json"
+    const url = `https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json`;
         const fetchApi = async () => {
               const response = await fetch(url)
               response.json().then(data => {
