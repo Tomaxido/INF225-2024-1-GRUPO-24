@@ -5,7 +5,7 @@ import './diseño.css';
 import Cookies from 'universal-cookie';
 
 
-export default function nuevo() {
+export default function Nuevo() {
     const cookies = new Cookies();
     const userId = cookies.get('userId');
     

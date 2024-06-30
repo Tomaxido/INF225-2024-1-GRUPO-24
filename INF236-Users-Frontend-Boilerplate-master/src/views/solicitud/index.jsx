@@ -74,8 +74,8 @@ export default function index() {
 			<div className="d-flex align-items-center">
 				<h1>Listado de Solicitudes</h1>
 				<div class="ml-auto d-flex">
-					<Link to="/solicitud/nuevo">
-						<a href="/solicitud/nuevo" className="ml-4 btn btn-primary">
+					<Link to="/solicitud/Nuevo">
+						<a href="/solicitud/Nuevo" className="ml-4 btn btn-primary">
 							Nueva Solicitud
 						</a>
 					</Link>

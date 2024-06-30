@@ -58,7 +58,7 @@ export default function App() {
 								<Route path="/users">
 									<UserList />
 								</Route>
-								<Route path="/solicitud/nuevo">
+								<Route path="/solicitud/Nuevo">
 									<SolicitudAdd />
 								</Route>
 								<Route path="/solicitud/:id">

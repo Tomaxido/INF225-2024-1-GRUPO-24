@@ -5,7 +5,7 @@ import './diseño.css';
 import axios from 'axios';
 
 
-export default function nuevo() {
+export default function Nuevo() {
     const history = useHistory();
     const [Uf, setUF] = useState()
     const url = `https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json`;
