@@ -34,7 +34,7 @@ export default function Index() {
         try {
             const response = await axios.get(euroUrl);
             console.log(response);
-            if (response.data && response.data.Euros && response.data.Euros.length > 0) {
+            if (response.data?.Euros && response.data.Euros.length > 0) {
                 const euroValue = parseFloat(response.data.Euros[0].Valor.replace(',', '.'));
                 return monto / euroValue;
             } else {
@@ -53,7 +53,7 @@ export default function Index() {
 
         try {
             const response = await axios.get(ufUrl);
-            if (response.data && response.data.UFs && response.data.UFs.length > 0) {
+            if (response.data?.UFs && response.data.UFs.length > 0) {
                 const ufValue = parseFloat(response.data.UFs[0].Valor);
                 return monto * ufValue;
             } else {
@@ -72,7 +72,7 @@ export default function Index() {
 
         try {
             const response = await axios.get(ufUrl);
-            if (response.data && response.data.UFs && response.data.UFs.length > 0) {
+            if (response.data?.UFs && response.data.UFs.length > 0) {
                 const ufValue = parseFloat(response.data.UFs[0].Valor);
                 return monto / ufValue;
             } else {
@@ -86,12 +86,12 @@ export default function Index() {
     };
 
     const getUTMValueByDate = async (date, monto) => {
-        const [year, month, day] = date.split("-");
+        const [year, month, _] = date.split("-");
         let utmUrl = `https://api.cmfchile.cl/api-sbifv3/recursos_api/utm/${year}/${month}/?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json`;
 
         try {
             const response = await axios.get(utmUrl);
-            if (response.data && response.data.UTMs && response.data.UTMs.length > 0) {
+            if (response.data?.UTMs && response.data.UTMs.length > 0) {
                 const utmValue = parseFloat(response.data.UTMs[0].Valor);
                 return monto / utmValue;
             } else {
@@ -109,7 +109,7 @@ export default function Index() {
 
         try {
             const response = await axios.get(dolarUrl);
-            if (response.data && response.data.Dolares && response.data.Dolares.length > 0) {
+            if (response.data?.Dolares && response.data.Dolares.length > 0) {
                 const dolarValue = parseFloat(response.data.Dolares[0].Valor.replace(',', '.'));
                 return monto / dolarValue;
             } else {
