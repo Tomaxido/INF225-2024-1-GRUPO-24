@@ -86,7 +86,7 @@ export default function Index() {
     };
 
     const getUTMValueByDate = async (date, monto) => {
-        const [year, month, _] = date.split("-");
+        const [year, month,] = date.split("-");
         let utmUrl = `https://api.cmfchile.cl/api-sbifv3/recursos_api/utm/${year}/${month}/?apikey=931fadd3fa3041a89f09ff5dc4712fc66729df50&formato=json`;
 
         try {
